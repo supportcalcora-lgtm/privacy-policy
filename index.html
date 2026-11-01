@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy – Calcora</title>
+<meta name="description" content="Privacy Policy for the Calcora calculator app. Your calculation history, themes and settings stay on your device.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/avernexstudio-apps/logos/main/Calcora.png">
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/avernexstudio-apps/logos/main/Calcora.png">
+<style>
+  :root {
+    --bg: #eef0f3;
+    --surface: #ffffff;
+    --ink: #1c2127;
+    --muted: #55606c;
+    --line: #d9dde3;
+    --link: #b84e05;
+    --accent: #e8741e;
+    --lcd: #14181d;
+    --lcd-ink: #f3f5f7;
+    --lcd-muted: #8b96a3;
+    --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1317;
+      --surface: #171c22;
+      --ink: #e9edf1;
+      --muted: #9aa5b1;
+      --line: #2a313a;
+      --link: #ff9a4d;
+      --lcd: #07090b;
+      --lcd-ink: #f3f5f7;
+      --lcd-muted: #8b96a3;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 24px; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  a { color: var(--link); text-underline-offset: 3px; }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { width: min(1080px, 100% - 32px); margin-inline: auto; }
+
+  /* ---------- Header + calculator-display hero ---------- */
+  .site-head { padding: 20px 0 0; }
+  .head-row { display: flex; justify-content: space-between; align-items: center; gap: 12px 16px; flex-wrap: wrap; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.125rem; text-decoration: none; color: var(--ink); }
+  .brand img { width: 34px; height: 34px; border-radius: 9px; display: block; }
+  .head-nav a { margin-left: 18px; color: var(--muted); text-decoration: none; font-size: .9375rem; }
+  .head-nav a:first-child { margin-left: 0; }
+  .head-nav a:hover { color: var(--ink); }
+  .head-nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+
+  .display {
+    margin: 20px 0 0;
+    background: var(--lcd);
+    color: var(--lcd-ink);
+    border-radius: 22px;
+    padding: clamp(20px, 4vw, 36px) clamp(20px, 4vw, 40px);
+    text-align: right;
+    font-family: var(--mono);
+    overflow: hidden;
+  }
+  .display .expr {
+    font-size: clamp(2rem, 7vw, 3.75rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -.02em;
+    overflow-wrap: anywhere;
+  }
+  .cursor {
+    display: inline-block;
+    width: .08em;
+    height: .9em;
+    margin-left: .12em;
+    vertical-align: -.1em;
+    background: var(--accent);
+    animation: blink 1.06s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  .display .ans {
+    margin-top: 14px;
+    font-size: clamp(1rem, 2.6vw, 1.375rem);
+    color: var(--lcd-muted);
+    line-height: 1.4;
+  }
+  .updated { margin: 14px 4px 0; color: var(--muted); font-size: .9375rem; }
+
+  /* ---------- Layout ---------- */
+  .layout {
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    gap: clamp(24px, 5vw, 56px);
+    margin: 32px auto 64px;
+    align-items: start;
+  }
+
+  .toc { position: sticky; top: 24px; font-size: .9375rem; }
+  .toc summary {
+    list-style: none;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 6px 0 10px;
+  }
+  .toc summary::-webkit-details-marker { display: none; }
+  .toc ol { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+  .toc li a {
+    display: block;
+    padding: 5px 0 5px 14px;
+    margin-left: -2px;
+    border-left: 2px solid transparent;
+    color: var(--muted);
+    text-decoration: none;
+    line-height: 1.35;
+  }
+  .toc li a:hover { color: var(--ink); }
+  .toc li a.active { color: var(--ink); border-left-color: var(--accent); font-weight: 600; }
+
+  /* ---------- Policy text ---------- */
+  article {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: clamp(22px, 5vw, 52px);
+  }
+  .lead { font-size: 1.1875rem; margin-top: 0; }
+  section { max-width: 68ch; }
+  section + section { margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+  h2 { font-size: 1.5rem; line-height: 1.25; margin: 0 0 .75rem; letter-spacing: -.01em; }
+  p { margin: 0 0 1rem; }
+  ul { margin: 0 0 1rem; padding-left: 1.25rem; }
+  li { margin-bottom: .6rem; }
+  li::marker { color: var(--accent); }
+  .callout {
+    border-left: 4px solid var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    padding: 14px 18px;
+    border-radius: 0 12px 12px 0;
+    font-weight: 600;
+  }
+  .contact { font-size: 1.125rem; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--muted); font-size: .9375rem; }
+  footer p { margin: 0 0 6px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: minmax(0, 1fr); margin-top: 24px; }
+    .toc {
+      position: static;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 4px 16px;
+    }
+    .toc summary { padding: 12px 0; }
+    .toc summary::after { content: "+"; float: right; font-weight: 400; font-size: 1.25rem; line-height: 1; }
+    .toc[open] summary::after { content: "–"; }
+    .toc ol { margin-bottom: 12px; }
+  }
+  @media (max-width: 480px) {
+    body { font-size: 1rem; }
+    .wrap { width: calc(100% - 24px); }
+    article { border-radius: 16px; }
+    h2 { font-size: 1.3125rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .cursor { animation: none; }
+  }
+  @media print {
+    body { background: #fff; color: #000; }
+    .toc, .display .cursor, .head-nav { display: none; }
+    .layout { display: block; }
+    article { border: 0; padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-head wrap">
+  <div class="head-row" id="top">
+    <a class="brand" href="#top">
+      <img src="https://raw.githubusercontent.com/avernexstudio-apps/logos/main/Calcora.png" alt="" width="34" height="34" onerror="this.style.display='none'">
+      Calcora
+    </a>
+    <nav class="head-nav" aria-label="Legal pages">
+      <a href="privacy-policy.html" aria-current="page">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms of Service</a>
+    </nav>
+  </div>
+  <div class="display" role="img" aria-label="Privacy Policy. Your data stays on your device.">
+    <div class="expr" aria-hidden="true">Privacy Policy<span class="cursor"></span></div>
+    <div class="ans" aria-hidden="true">= Your data stays on your device</div>
+  </div>
+  <p class="updated">Last updated: November 2026</p>
+</header>
+
+<main class="wrap layout">
+
+  <details class="toc" id="toc" open>
+    <summary>Contents</summary>
+    <nav aria-label="Privacy policy sections">
+      <ol>
+        <li><a href="#collect">1. Information we collect</a></li>
+        <li><a href="#third-party">2. Third-party services</a></li>
+        <li><a href="#security">3. Data storage and security</a></li>
+        <li><a href="#sharing">4. Data sharing</a></li>
+        <li><a href="#children">5. Children's privacy</a></li>
+        <li><a href="#rights">6. Your rights and choices</a></li>
+        <li><a href="#retention">7. Data retention</a></li>
+        <li><a href="#changes">8. Changes to this policy</a></li>
+        <li><a href="#international">9. International users</a></li>
+        <li><a href="#dnt">10. Do Not Track</a></li>
+        <li><a href="#contact">11. Contact us</a></li>
+      </ol>
+    </nav>
+  </details>
+
+  <article>
+    <p class="lead">Your privacy is important to us. This Privacy Policy explains how Calcora ("we," "our," or "the app") collects, uses, and protects your information when you use our calculator application.</p>
+
+    <section id="collect">
+      <h2>1. Information we collect</h2>
+      <p class="callout">We do NOT collect or store any personal information on our servers. All your data stays on your device.</p>
+      <p>The following data is stored locally on your device:</p>
+      <ul>
+        <li><strong>Calculation history:</strong> Your previous calculations are stored locally on your device for your convenience. We do not have access to this data, and it is never transmitted to our servers or any third parties.</li>
+        <li><strong>Theme preferences:</strong> Your selected theme and unlocked premium themes are stored locally using secure encrypted storage.</li>
+        <li><strong>App settings:</strong> Your preferences, such as live calculation mode and angle mode (degrees/radians), are saved locally.</li>
+      </ul>
+    </section>
+
+    <section id="third-party">
+      <h2>2. Third-party services</h2>
+      <p>Calcora uses the following third-party service:</p>
+      <p><strong>Google AdMob:</strong> We use Google AdMob to display advertisements in the app. AdMob may collect and process certain data to provide personalized ads. This may include:</p>
+      <ul>
+        <li>Device information (device model, operating system version)</li>
+        <li>Ad interaction data (clicks, impressions)</li>
+        <li>Anonymous identifiers for advertising purposes</li>
+      </ul>
+      <p>For more information about how Google processes data, please review:</p>
+      <ul>
+        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+        <li><a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener noreferrer">How Google uses data when you use our partners' sites or apps</a></li>
+      </ul>
+    </section>
+
+    <section id="security">
+      <h2>3. Data storage and security</h2>
+      <p>All your personal data (calculation history, theme preferences, settings) is stored locally on your device using secure storage mechanisms:</p>
+      <ul>
+        <li><strong>SQLite database:</strong> Used for calculation history with local encryption.</li>
+        <li><strong>Secure storage:</strong> Theme preferences and settings are stored using expo-secure-store with hardware-backed encryption when available.</li>
+      </ul>
+      <p>We implement appropriate technical measures to protect your data from unauthorized access, alteration, or destruction.</p>
+    </section>
+
+    <section id="sharing">
+      <h2>4. Data sharing</h2>
+      <p><strong>We do NOT sell, trade, or transfer your data to third parties.</strong> The only data sharing occurs through Google AdMob, as described in the Third-party services section above.</p>
+    </section>
+
+    <section id="children">
+      <h2>5. Children's privacy</h2>
+      <p>Calcora does not knowingly collect personal information from children under the age of 13. The app is designed to be safe for all ages and complies with the Children's Online Privacy Protection Act (COPPA).</p>
+      <p>If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately.</p>
+    </section>
+
+    <section id="rights">
+      <h2>6. Your rights and choices</h2>
+      <p>You have full control over your data:</p>
+      <ul>
+        <li><strong>Clear history:</strong> You can delete your calculation history at any time from within the app.</li>
+        <li><strong>Reset themes:</strong> Uninstalling the app will remove all locally stored data.</li>
+        <li><strong>Ad choices:</strong> You can manage ad personalization through your device settings (Android: Settings &gt; Google &gt; Ads).</li>
+      </ul>
+    </section>
+
+    <section id="retention">
+      <h2>7. Data retention</h2>
+      <p>Data is retained locally on your device until you:</p>
+      <ul>
+        <li>Manually clear your calculation history</li>
+        <li>Uninstall the application</li>
+        <li>Clear the app's data through your device settings</li>
+      </ul>
+    </section>
+
+    <section id="changes">
+      <h2>8. Changes to this privacy policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of any changes by:</p>
+      <ul>
+        <li>Updating the "Last updated" date at the top of this policy</li>
+        <li>Displaying a notice in the app (for significant changes)</li>
+      </ul>
+      <p>Your continued use of the app after any changes constitutes acceptance of the updated Privacy Policy.</p>
+    </section>
+
+    <section id="international">
+      <h2>9. International users</h2>
+      <p>Calcora is available worldwide. If you are using the app from outside your home country, please note that your data (stored locally on your device) remains subject to the laws of your jurisdiction.</p>
+    </section>
+
+    <section id="dnt">
+      <h2>10. Do Not Track</h2>
+      <p>Our app does not track users across third-party websites. However, Google AdMob may track ad interactions as described in their privacy policy.</p>
+    </section>
+
+    <section id="contact">
+      <h2>11. Contact us</h2>
+      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact us:</p>
+      <p class="contact"><strong>Email:</strong> <a href="mailto:support.calcora@gmail.com">support.calcora@gmail.com</a></p>
+      <p>We will respond to your inquiry within 48 hours.</p>
+    </section>
+  </article>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Calcora</strong> – Beautiful Calculator for Everyone</p>
+    <p>© <span id="year">2026</span> Calcora. All rights reserved. · <a href="terms-of-service.html">Terms of Service</a> · <a href="#top">Back to top</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var toc = document.getElementById('toc');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var desktop = window.matchMedia('(min-width: 861px)');
+
+  // Contents: always open on desktop, collapsed by default on phones
+  function syncToc() { toc.open = desktop.matches; }
+  syncToc();
+  if (desktop.addEventListener) desktop.addEventListener('change', syncToc);
+  else if (desktop.addListener) desktop.addListener(syncToc);
+
+  // On phones, close the menu after tapping a link
+  links.forEach(function (a) {
+    a.addEventListener('click', function () { if (!desktop.matches) toc.open = false; });
+  });
+
+  // Highlight the section currently being read
+  var sections = Array.prototype.slice.call(document.querySelectorAll('article section'));
+  function setActive(id) {
+    links.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setActive(e.target.id); });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(function (s) { io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
