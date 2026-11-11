@@ -6,7 +6,7 @@
 <title>Privacy Policy – Calcora</title>
 <meta name="description" content="Privacy Policy for the Calcora calculator app. Your calculation history, themes and settings stay on your device.">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/avernexstudio-apps/logos/main/Calcora.png">
+<link rel="icon" href="https://raw.githubusercontent.com/avernexstudio-apps/logos/main/Calcora.png">
 <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/avernexstudio-apps/logos/main/Calcora.png">
 <style>
   :root {
@@ -54,13 +54,8 @@
 
   /* ---------- Header + calculator-display hero ---------- */
   .site-head { padding: 20px 0 0; }
-  .head-row { display: flex; justify-content: space-between; align-items: center; gap: 12px 16px; flex-wrap: wrap; }
-  .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.125rem; text-decoration: none; color: var(--ink); }
-  .brand img { width: 34px; height: 34px; border-radius: 9px; display: block; }
-  .head-nav a { margin-left: 18px; color: var(--muted); text-decoration: none; font-size: .9375rem; }
-  .head-nav a:first-child { margin-left: 0; }
-  .head-nav a:hover { color: var(--ink); }
-  .head-nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+  .brand { font-weight: 700; font-size: 1.125rem; letter-spacing: .01em; text-decoration: none; color: var(--ink); }
+  .brand span { color: var(--accent); }
 
   .display {
     margin: 20px 0 0;
@@ -181,7 +176,7 @@
   }
   @media print {
     body { background: #fff; color: #000; }
-    .toc, .display .cursor, .head-nav { display: none; }
+    .toc, .display .cursor { display: none; }
     .layout { display: block; }
     article { border: 0; padding: 0; }
   }
@@ -190,15 +185,13 @@
 <body>
 
 <header class="site-head wrap">
-  <div class="head-row" id="top">
-    <a class="brand" href="#top">
-      <img src="https://raw.githubusercontent.com/avernexstudio-apps/logos/main/Calcora.png" alt="" width="34" height="34" onerror="this.style.display='none'">
-      Calcora
-    </a>
-    <nav class="head-nav" aria-label="Legal pages">
-      <a href="https://supportcalcora-lgtm.github.io/privacy-policy/" aria-current="page">Privacy Policy</a>
-      <a href="https://supportcalcora-lgtm.github.io/terms-of-services/">Terms of Service</a>
-    </nav>
+  <div style="text-align: center; margin-bottom: 16px;">
+    <img 
+      src="https://raw.githubusercontent.com/avernexstudio-apps/logos/main/Calcora.png" 
+      alt="Calcora Logo" 
+      style="width: 72px; height: 72px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.12); display: inline-block; vertical-align: middle; margin-right: 12px;"
+    />
+    <a class="brand" href="#top" id="top" style="display: inline-block; vertical-align: middle;">Calcora<span>.</span></a>
   </div>
   <div class="display" role="img" aria-label="Privacy Policy. Your data stays on your device.">
     <div class="expr" aria-hidden="true">Privacy Policy<span class="cursor"></span></div>
@@ -244,13 +237,16 @@
 
     <section id="third-party">
       <h2>2. Third-party services</h2>
-      <p>Calcora uses the following third-party service:</p>
-      <p><strong>Google AdMob:</strong> We use Google AdMob to display advertisements in the app. AdMob may collect and process certain data to provide personalized ads. This may include:</p>
+      <p>Calcora uses the following third-party services:</p>
+      <p><strong>Google AdMob:</strong> We use Google AdMob to show optional rewarded video ads, which you can choose to watch to unlock premium themes. The app requests <strong>non-personalized ads only</strong>. AdMob still collects and processes certain data to serve ads, measure them and prevent fraud, including:</p>
       <ul>
         <li>Device information (device model, operating system version)</li>
-        <li>Ad interaction data (clicks, impressions)</li>
-        <li>Anonymous identifiers for advertising purposes</li>
+        <li>The device's advertising ID and IP address</li>
+        <li>Ad interaction data (impressions, clicks, whether an ad was completed)</li>
+        <li>Diagnostic data (for example, crash and performance data of the ad SDK)</li>
       </ul>
+      <p><strong>Consent (EEA, UK and Switzerland):</strong> If you are in one of these regions, the app asks for your consent through Google's consent form before any ads are requested. You can change your choice at any time in <em>Settings &gt; Ad Privacy Choices</em>.</p>
+      <p><strong>Exchange rates:</strong> The Currency Converter downloads exchange rates from ExchangeRate-API (open.er-api.com). This request contains no personal data from the app, but like any internet request it exposes your IP address to that service. Rates are cached on your device. See <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener noreferrer">exchangerate-api.com</a> for their terms and privacy policy.</p>
       <p>For more information about how Google processes data, please review:</p>
       <ul>
         <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
@@ -260,22 +256,22 @@
 
     <section id="security">
       <h2>3. Data storage and security</h2>
-      <p>All your personal data (calculation history, theme preferences, settings) is stored locally on your device using secure storage mechanisms:</p>
+      <p>Your app data (calculation history, theme preferences, settings) is stored only on your device:</p>
       <ul>
-        <li><strong>SQLite database:</strong> Used for calculation history with local encryption.</li>
-        <li><strong>Secure storage:</strong> Theme preferences and settings are stored using expo-secure-store with hardware-backed encryption when available.</li>
+        <li><strong>Calculation history:</strong> Stored in a local SQLite database inside the app's private storage. It is protected by Android's app sandbox but is not separately encrypted.</li>
+        <li><strong>Theme, tool and app settings:</strong> Stored using Android's encrypted secure storage (expo-secure-store).</li>
       </ul>
-      <p>We implement appropriate technical measures to protect your data from unauthorized access, alteration, or destruction.</p>
+      <p>This data never leaves your device and is not backed up to our servers (we have none).</p>
     </section>
 
     <section id="sharing">
       <h2>4. Data sharing</h2>
-      <p><strong>We do NOT sell, trade, or transfer your data to third parties.</strong> The only data sharing occurs through Google AdMob, as described in the Third-party services section above.</p>
+      <p><strong>We do NOT sell, trade, or transfer your data to third parties.</strong> The only data that leaves your device is what Google AdMob and the exchange-rate service receive, as described in the Third-party services section above.</p>
     </section>
 
     <section id="children">
       <h2>5. Children's privacy</h2>
-      <p>Calcora does not knowingly collect personal information from children under the age of 13. The app is designed to be safe for all ages and complies with the Children's Online Privacy Protection Act (COPPA).</p>
+      <p>Calcora is not directed at children under the age of 13 and does not knowingly collect personal information from them. Because the app shows ads served by Google AdMob, it is intended for users aged 13 and over.</p>
       <p>If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately.</p>
     </section>
 
@@ -285,7 +281,7 @@
       <ul>
         <li><strong>Clear history:</strong> You can delete your calculation history at any time from within the app.</li>
         <li><strong>Reset themes:</strong> Uninstalling the app will remove all locally stored data.</li>
-        <li><strong>Ad choices:</strong> You can manage ad personalization through your device settings (Android: Settings &gt; Google &gt; Ads).</li>
+        <li><strong>Ad choices:</strong> You can reset or delete your advertising ID in your device settings (Android: Settings &gt; Google &gt; Ads). In the EEA, UK and Switzerland you can also change your ad consent in <em>Settings &gt; Ad Privacy Choices</em>.</li>
       </ul>
     </section>
 
@@ -332,7 +328,7 @@
 <footer>
   <div class="wrap">
     <p><strong>Calcora</strong> – Beautiful Calculator for Everyone</p>
-    <p>© <span id="year">2026</span> Calcora. All rights reserved. · <a href="https://supportcalcora-lgtm.github.io/terms-of-services/">Terms of Service</a> · <a href="#top">Back to top</a></p>
+    <p>© <span id="year">2026</span> Calcora. All rights reserved. · <a href="#top">Back to top</a></p>
   </div>
 </footer>
 
